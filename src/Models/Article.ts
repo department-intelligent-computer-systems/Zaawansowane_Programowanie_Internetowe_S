@@ -18,16 +18,16 @@ class Article {
     get id():number { return this._id;}
 
     get title():string { return this._title;}
-    set title(value:string) { this._title = this.title; }
+    set title(value:string) { this._title = value; }
 
     get content():string { return this._content;}
-    set content(value:string) { this._content = this.content; }
+    set content(value:string) { this._content = value; }
 
     get creationDate():Date { return this._creationDate;}
-    set creationDate(value:Date) { this._creationDate = this.creationDate; }
+    set creationDate(value:Date) { this._creationDate = value; }
 
     get coments():Coment[] { return this._coments;}
-    set coments(value:Coment[]) { this._coments = this.coments; }
+    set coments(value:Coment[]) { this._coments = value; }
   
     public addComment(coment: Coment): void {
       this._coments.push(coment);
@@ -36,8 +36,5 @@ class Article {
     public getComments(): Coment[] {
       return this._coments;
     }
-  
-    public getTitle(): string {
-      return this._title;
-    }
+
   }

@@ -16,23 +16,24 @@ class  Blog {
     get id():number { return this._id;}
 
     get name():string { return this._name;}
-    set name(value:string) { this._name = this.name; }
+    set name(value:string) { this._name = value; }
 
     get author():Author { return this._author;}
-    set author(value:Author) { this._author = this.author; }
+    set author(value:Author) { this._author = value; }
 
     get articles():Article[] { return this._articles;}
-    set articles(value:Article[]) { this._articles = this.articles; }
+    set articles(value:Article[]) { this._articles = value; }
 
     public addArticle(article: Article): void {
       this._articles.push(article);
     }
     
-      public getArticleTitles(): string[] {
-        return this._articles.map((article) => article.getTitle());
+    public getArticleTitles(): string[] {
+      return this._articles.map((article) => article.title);
     }
     
-    public getArticle(): Article {
-     return this._articles[0];
+    public getArticle(articleId: number): Article | undefined {
+      return this._articles.find(article => article.id === articleId);
     }
+    
 }

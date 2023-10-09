@@ -12,16 +12,16 @@ class Coment {
     }
 
     get content():string { return this._content;}
-    set content(value:string) { this._content = this.content; }
+    set content(value:string) { this._content = value; }
 
     get date():Date { return this._date;}
-    set date(value:Date) { this._date = this.date; }
+    set date(value:Date) { this._date = value; }
 
     get replies():Coment[] { return this._replies;}
-    set replies(value:Coment[]) { this._replies = this.replies; }
+    set replies(value:Coment[]) { this._replies = value; }
 
     get nick():string { return this._nick;}
-    set nick(value:string) { this._nick = this.nick; }
+    set nick(value:string) { this._nick = value; }
     
   
     public addReply(reply: Coment): void {
