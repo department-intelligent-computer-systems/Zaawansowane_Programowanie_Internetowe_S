@@ -12,5 +12,18 @@ class Author {
       this._email = email;
       Author.static_objectCounter++;
     }
-  }
+
+    get id():number { return this._id;}
+
+    get firstname():string { return this._firstname;}
+    set firstname(value:string) { this._firstname = this.firstname; }
+
+    get lastname():string { return this._lastname;}
+    set lastname(value:string) { this._lastname = this.lastname; }
+
+    get email():string { return this._email;}
+    set email(value:string) { this._email = this.email; }
+
+
+}
   

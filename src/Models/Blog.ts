@@ -13,6 +13,17 @@ class  Blog {
         Blog.static_objectCounter++;
     }
 
+    get id():number { return this._id;}
+
+    get name():string { return this._name;}
+    set name(value:string) { this._name = this.name; }
+
+    get author():Author { return this._author;}
+    set author(value:Author) { this._author = this.author; }
+
+    get articles():Article[] { return this._articles;}
+    set articles(value:Article[]) { this._articles = this.articles; }
+
     public addArticle(article: Article): void {
       this._articles.push(article);
     }
