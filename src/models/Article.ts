@@ -1,9 +1,12 @@
 import { Comment } from "./Comment";
+import { currentDate, required } from "./Decorators";
 
 export class Article {
   private _id: number;
+  @required("Pole tytuł nie może być puste")
   private _title: string;
   private _content: string;
+  @currentDate("W momencie tworzenia data powinna być ustalona na aktualną")
   private _creationDate: Date;
   private _comments: Comment[] = [];
   static _objectCounter: number;

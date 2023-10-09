@@ -1,9 +1,12 @@
 import { Article } from "./Article";
 import { Author } from "./Author";
+import { required } from "./Decorators";
 
 export class Blog {
   private _id: number;
+  @required("Nazwa nie może być pusta")
   private _name: string;
+  @required("Autor musi zostać podany")
   private _author: Author;
   private _articles: Article[] = [];
   static _objectCounter: number;
