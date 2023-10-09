@@ -1,5 +1,14 @@
-function hello() {
-    console.log("Witaj w swiecie Typescript.")
-}
+// function hello() {
+//     console.log("Witaj w swiecie Typescript.")
+// }
 
-hello();
+// hello();
+
+
+// class Book {
+//     constructor(
+//     public title: string,
+//     public numberOfPages: number
+//     ){}
+// }
+
