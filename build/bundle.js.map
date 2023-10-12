@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":";;;;;AAAA;AACA;AACA;AACA","sources":["webpack://lab1/./src/index.ts"],"sourcesContent":["function hello() {\n    console.log(\"Witaj w swiecie Typescript.\");\n}\nhello();\n"],"names":[],"sourceRoot":""}
