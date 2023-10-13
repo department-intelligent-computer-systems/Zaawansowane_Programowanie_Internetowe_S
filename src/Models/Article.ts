@@ -12,6 +12,7 @@ class Article {
         this._content = content;
         this._creationDate = creationDate;
         this._comments = comments;
+        Article._objectCounter++;
     }
 
     addComment(comment:UserComment) : void{

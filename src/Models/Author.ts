@@ -1,6 +1,10 @@
+import { required } from "../Decorators/RequiredDecorator";
+
 class Author {
     private _id:number;
+    @required("Pole imię nie może być puste") 
     private _firstName:string;
+    @required("Pole nazwisko nie może być puste") 
     private _lastName:string;
     private _email:string;
     private static _objectCounter:number;
@@ -10,5 +14,6 @@ class Author {
         this._firstName = firstName;
         this._lastName = lastName;
         this._email = email;
+        Author._objectCounter++;
     }
 }

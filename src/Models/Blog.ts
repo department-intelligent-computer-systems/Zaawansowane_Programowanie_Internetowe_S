@@ -1,6 +1,6 @@
 class Blog {
     private _id:number;
-    private _name:string;
+    private _name:string;   
     private _author:Author;
     private _articles:Article[];
     private static _objectCounter:number;
@@ -10,6 +10,7 @@ class Blog {
         this._name = firstName;
         this._author = author;
         this._articles = articles;
+        Blog._objectCounter++;
     }
 
     addArticle(article:Article) : void{
