@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html>
+    <style>
+        input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Stylizacja dla przycisków "+" i "-" */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* Dla przycisków "+" i "-" przy najęciu myszą */
+button:hover {
+  background-color: #0056b3;
+}
+    </style>
     <head>
         <link rel="shortcut icon" href="#">
-    <body></body>
+    <body>
+        <input type="text" id="counterInput" value="0">
+        <button id="incrementButton">+</button>
+        <button id="decrementButton">-</button>
+    </body>
+    
 </html>
