@@ -1,5 +1,7 @@
-class Article{
+import { notEmpty } from "./decoratos";
+export class Article{
     private _id: number;
+    @notEmpty("Tytuł nie może być pusty")
     private _title: string;
     private _content: string;
     private _creationDate: Date;
@@ -7,9 +9,7 @@ class Article{
     private static _objectCounter: number;
   
     constructor(id: number, title: string, content: string) {
-      if (!title) {
-        throw new Error("Tytuł artykułu jest wymagany");
-      }
+      
       this._id = id;
       this._title = title;
       this._content = content;

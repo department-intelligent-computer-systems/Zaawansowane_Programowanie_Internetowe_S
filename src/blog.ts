@@ -1,7 +1,11 @@
-
+import { notEmpty, required } from "./decoratos";
+import { Author } from "./author";
+import { Article } from "./article";
 class Blog {
     private _id: number;
+    @notEmpty("Nazwa nie może być pusta")
     private _name: string;
+    @required
     private _author: Author;
     private _articles: Article[];
     private static _objectCounter: number = 0;
