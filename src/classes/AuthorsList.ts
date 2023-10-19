@@ -12,7 +12,7 @@ class AuthorsList {
     }
 
     public export() {
-        return this._exportMethod.export(authors);
+        return this._exportMethod.export(this._authors);
     }
 
     public setExportMethod(exportMethod:Export) {
