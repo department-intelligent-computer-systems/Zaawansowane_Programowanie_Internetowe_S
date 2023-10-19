@@ -1,5 +1,5 @@
 import { Author } from "../classes/Author";
-import { IShow } from "../infterfaces/IShow";
+import { IShow } from "../interfaces/IShow";
 
 
 export class List implements IShow {
