@@ -1,4 +1,4 @@
-class MyComment {
+export default class MyComment {
   private _content: string;
   private _date: Date;
   private _replies: MyComment[];

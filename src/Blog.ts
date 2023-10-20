@@ -1,6 +1,11 @@
-class Blog {
+import Article from "./Article";
+import Author from "./Author";
+import { required } from "./decorators/required";
+
+export default class Blog {
   private _id: number;
   private _name: string;
+  @required
   private _author: Author;
   private _articles: Article[];
   private static _objectCounter: number;

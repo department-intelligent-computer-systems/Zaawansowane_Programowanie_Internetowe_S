@@ -1,5 +1,9 @@
-class Article {
+import MyComment from "./MyComment";
+import { required } from "./decorators/required";
+
+export default class Article {
   private _id: number;
+  @required
   private _title: string;
   private _content: string;
   private _creationDate: Date;
@@ -16,10 +20,12 @@ class Article {
     this._content = content;
     this._id = id;
     this._title = title;
-    this._creationDate = creationDate;
+    this._creationDate = new Date();
     this._comments = comments;
   }
-  get title():string{return this.title}
+  get title(): string {
+    return this.title;
+  }
   addComment(): void {}
   getComments(): MyComment[] {
     return this._comments;
