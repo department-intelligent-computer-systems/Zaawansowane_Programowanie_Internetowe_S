@@ -17,11 +17,11 @@ class Article {
 
     get title():string { return this._title;}
 
-    public addComment(comment: Comment): void {
-      this._comments.push(comment);
-    }
+    // public addComment(comment: Comment): void {
+    //   this._comments.push(comment);
+    // }
   
-    public getComments(): Comment[] {
-      return this._comments;
-    }
+    // public getComments(): Comment[] {
+    //   return this._comments;
+    // }
 }
