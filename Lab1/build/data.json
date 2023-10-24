@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "email": "ok@pl"
+    },
+    {
+      "id": 2,
+      "firstName": "Maria",
+      "lastName": "Rodriguez",
+      "email": "ok@pl"
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "lastName": "Johnson",
+      "email": "ok@pl"
+    },
+    {
+      "id": 4,
+      "firstName": "Mikhail",
+      "lastName": "Ivanov",
+      "email": "ok@pl"
+    }
+  ]
+  
