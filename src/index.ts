@@ -5,6 +5,7 @@ import { calculateEvenSum } from "./Lab2/examples/zad2";
 import { calculateSelectedSum } from "./Lab2/examples/zad3";
 import { calculateGreaterThenSum } from "./Lab2/examples/zad4";
 import { calculateGreaterThenCurryingSum } from "./Lab2/examples/zad5";
+import { sum } from "./Lab2/examples/zad6";
 
 // function initialize() {
 //     const app = new Buttons();
@@ -22,3 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     calculateGreaterThenSum();
     calculateGreaterThenCurryingSum();
 })
+
+
+console.log(sum);
