@@ -1,0 +1,14 @@
+h1 {color: blue}
+
+
+p.size {
+    font-size: 48px;
+}
+
+p.color {
+    color: green
+}
+
+p.text-decoration {
+    text-decoration: line-through;
+}
