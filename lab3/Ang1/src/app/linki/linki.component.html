@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <p>Jednokrotny wybor</p>
+<ul>
+  <li *ngFor="let link of favoriteLinks">
+    <a [href]="link.url" [style.color]="link.color" (mouseover)="selectLink(link)">{{ link.name }}</a>
+  </li>
+</ul>
+<p>wielokrotny wybor</p>
+<ul>
+  <li *ngFor="let link of favoriteLinks2">
+    <a [href]="link.url" [style.color]="link.color" (mouseover)="changeColor(link)">{{ link.name }}</a>
+  </li>
+</ul>
+    
+</body>
+</html>
