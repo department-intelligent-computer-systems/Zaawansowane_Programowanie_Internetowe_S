@@ -6,6 +6,8 @@ import { strings } from "./Lab2/zad1";
 //import { greaterThen } from "./Lab2/zad1";
 import { zad5 } from "./Lab2/zad1";
 import { zad6 } from "./Lab2/zad1";
+import { fromEvent } from "rxjs";
+import { ClickObserver } from "./Lab2/clickObserver";
 
 
 
@@ -15,4 +17,14 @@ console.log(zad2(numbers));
 console.log(zad3(numbers, 4));
 console.log(zad5(numbers, 4, 5));
 console.log(zad6(strings));
+
+let element = document!.querySelector<HTMLButtonElement>("#button");
+if (element){
+    fromEvent(element, "click")!.subscribe(new ClickObserver("info1"));
+}
+
+
+
+
+
 
