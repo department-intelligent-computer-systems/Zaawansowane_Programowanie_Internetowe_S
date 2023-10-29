@@ -1,0 +1,18 @@
+<!-- Zadanie 15, 16 -->
+<h2>Zadanie 15 i 16</h2>
+<div class="d-flex flex-row col-10 align-items-center">
+  <div class="card m-4 col-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <p class="card-title">Ulubione strony v2</p>
+    </div>
+    <ul class="list-group">
+      <li *ngFor="let link of favoriteLinks; let i = index" style="display: flex; justify-content: space-between;"
+        class="list-group-item">
+        <p>{{link.name}}</p>
+        <button (click)="changeLink(link, i)">Usuń</button>
+      </li>
+    </ul>
+  </div>
+  <app-zadanie16p1 class="col-2" *ngIf="selectedLink" [link]="selectedLink"
+    (delete)="deleteLink(indexOfSelectedLink)"></app-zadanie16p1>
+</div>

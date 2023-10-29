@@ -1,0 +1,30 @@
+<!-- Zadanie 21 -->
+<h2>Zadanie 21</h2>
+<div class="d-flex flex-row col-10 align-items-center">
+  <div class="card m-4 col-3">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <p class="card-title">Ulubione strony v3</p>
+    </div>
+    <ul class="list-group">
+      <li *ngFor="let link of favoriteLinks; let i = index" style="display: flex; justify-content: space-between;"
+        class="list-group-item">
+        <p>{{link.name}}</p>
+        <button (click)="changeLink(link, i)">Usuń</button>
+        <button (click)="changeLinkToEdit(link, i)">Edytuj</button>
+      </li>
+    </ul>
+    <form (ngSubmit)="submit()" class="mt-2">
+      <input type="text" [(ngModel)]="linkName" name="linkName">
+      <div *ngIf="linkError" class="error">{{ linkError }}</div>
+      <input type="text" [(ngModel)]="linkUrl" name="linkUrl">
+      <div *ngIf="urlError" class="error">{{ urlError }}</div>
+      <button (click)="clearForm()" class="btn btn-danger" type="button">Anuluj</button>
+      <button class="btn btn-primary" type="submit">Dodaj</button>
+    </form>
+  </div>
+  <app-zadanie16p1 class="col-2" *ngIf="selectedLink" [link]="selectedLink" (delete)="deleteLink(indexOfSelectedLink)">
+  </app-zadanie16p1>
+  <app-zadanie21p1 class="col-2" *ngIf="selectedLinkToEdit" [link]="selectedLinkToEdit" (edit)="editLink($event)">
+  </app-zadanie21p1>
+
+</div>

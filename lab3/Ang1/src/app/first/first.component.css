@@ -1,0 +1,10 @@
+h1 {color:blue}
+
+.enlargeText {
+  font-size: 20px;
+}
+
+.textColorAndOverline {
+  text-decoration:line-through;
+  color: blue;
+}

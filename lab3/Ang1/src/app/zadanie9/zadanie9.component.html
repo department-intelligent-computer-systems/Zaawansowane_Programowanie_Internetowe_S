@@ -1,0 +1,6 @@
+<!-- Zadanie 9, 10, 11 -->
+
+<h2>Zadanie 9,10,11</h2>
+<p>{{photos[currentPhotoIndex]}}</p>
+<button (click)="showPreviousPhoto()" [ngClass]="{'hideElement' : currentPhotoIndex === 0}">Show previous</button>
+<button (click)="showNextPhoto()" [ngClass]="{'hideElement' : currentPhotoIndex === photosNumber}">Show next</button>

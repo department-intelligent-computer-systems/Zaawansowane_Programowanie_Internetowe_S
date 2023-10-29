@@ -1,0 +1,7 @@
+<p
+  [ngClass]="{'enlargeText': isFirstButtonActivated === true, 'textColorAndOverline': isSecondButtonActivated === true}">
+  {{title}}</p>
+<!-- <p>{{method()}}</p> -->
+<button (click)="onClick()">Kliknij mnie</button>
+<button (click)="firstButtonClick()">Powiększenie tekstu</button>
+<button (click)="secondButtonClick()">Zmiana koloru i przekreślenie</button>
