@@ -14,5 +14,6 @@ export class DisplayHTMLTable implements IDisplay{
         }
         table += '</tr>';
         return table;
+        //
     }
 }
