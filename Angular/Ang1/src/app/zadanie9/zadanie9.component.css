@@ -1,0 +1,10 @@
+.displayPhoto {
+  display: none;
+}
+
+.button:disabled {
+  background-color: #ccc; /* Kolor tła dla wyłączonego przycisku */
+  color: #888; /* Kolor tekstu dla wyłączonego przycisku */
+  cursor: not-allowed; /* Zmiana kursora na "not-allowed" */
+  /* Inne stylizacje, które chcesz zastosować dla wyłączonego przycisku */
+}
