@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <p
+            [ngClass]="{'font-size-20': fontSize, 'green-text': isGreen, 'strike-through': isStrikeThrough, bothEffects: fontSize && isGreen}">
+            {{ dispText }}</p>
+        <button (click)="show()">Show</button>
+        <button (click)="changeFontSize()">Change size</button>
+        <button (click)="changeColorStrikeThrough()">Change color</button>
+    </div>
+    <br>
+    <div *ngFor="let link of likedLinks">
+        <a [href]=" link.address" (click)="changeBackgroundColor(link)"
+            [style.background-color]=" link.chosen? 'orange': ''">{{link.name}}</a>
+    </div>
+    <br>
+    <div>
+        <p>value counter: {{counter}}</p>
+        <button (click)="changeCounter(2)">+2</button>
+        <button (click)="increaseCounter()">+</button>
+        <button (click)="decreaseCounter()">-</button>
+        <button (click)="changeCounter(-2)">-2</button>
+    </div>
+    <br>
+    <div>
+        <img [src]="photos[photoIndex]" alt="Photo"><br>
+        <button (click)="previousPhoto()" [hidden]='previousPhotoDisabled()'>Previous</button>
+        <button (click)="nextPhoto()" [hidden]="nextPhotoDisabled()">Next</button>
+    </div>
+</body>
+
+</html>
