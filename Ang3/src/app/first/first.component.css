@@ -1,0 +1,9 @@
+.large-font {
+    font-size: 24px;
+  }
+  
+  .green-strikethrough {
+    color: green;
+    text-decoration: line-through;
+  }
+  

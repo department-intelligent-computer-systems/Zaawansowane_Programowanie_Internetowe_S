@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul>
+          <li *ngFor="let link of favoriteLinks; let i = index">
+            <a [href]="link.url" [style.color]="i === selectedLinkIndex ? 'red' : 'blue'" (click)="selectLink(i)">{{ link.name }}</a>
+          </li>
+        </ul>
+      </div>
+      
+</body>
+</html>
