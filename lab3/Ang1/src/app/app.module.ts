@@ -8,6 +8,7 @@ import { Zad1Component } from './zad1/zad1.component';
 import { LinkiComponent } from './linki/linki.component';
 import { KlikComponent } from './klik/klik.component';
 import { GaleryComponent } from './galery/galery.component';
+import { FirstComponetComponent } from './first-componet/first-componet.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GaleryComponent } from './galery/galery.component';
     Zad1Component,
     LinkiComponent,
     KlikComponent,
-    GaleryComponent
+    GaleryComponent,
+    FirstComponetComponent
   ],
   imports: [
     BrowserModule,

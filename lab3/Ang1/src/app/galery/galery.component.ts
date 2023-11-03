@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
 export class GaleryComponent {
 
   photos = [
-    './photo/1.png',
-    './photo/2.jpg',
-    './photo/3.webp',
+    'assets/photo/1.png',
+    'assets/photo/2.jpg',
+    'assets/photo/3.webp',
    
   ];
   currentIndex: number = 0;
