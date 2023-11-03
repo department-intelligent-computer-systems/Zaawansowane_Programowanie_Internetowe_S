@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let link of ulubioneLinki">
+      <a [href]="link.adres" [style.color]="link.kolor">{{ link.nazwa }}</a>
+      <button (click)="zmienKolor(link)">Zmień kolor</button>
+    </li>
+  </ul>
+  
