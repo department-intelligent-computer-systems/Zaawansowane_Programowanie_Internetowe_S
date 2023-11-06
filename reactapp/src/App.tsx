@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Zadanie1 from "./components/Zadanie1"
+
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           Learn React
         </a>
       </header>
+        <Zadanie1/>
+
     </div>
   );
 }
