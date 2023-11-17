@@ -19,6 +19,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "react": "^18.2.0",
     "webpac": "^0.0.1-security"
   }
 }
