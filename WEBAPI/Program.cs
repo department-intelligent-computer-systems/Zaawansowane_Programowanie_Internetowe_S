@@ -17,6 +17,81 @@ if(app.Environment.IsDevelopment())
 
 app.MapGet("/", () => "Hello World!");
 
+app.MapGet("/api/contacts", async (AppDbContext context)=> {
+    try
+    {
+        var list = await context.Contacts.ToListAsync();
+        return Results.Ok(list.Select(contact=>(ContactDTO)contact));
+    }
+    catch(Exception e)
+    {
+        return Results.Problem(
+            detail: "Wystpił błąd podczas realizacji tego żądania",
+            title: "Błąd"
+        );
+    }
+    });
+
+app.MapGet("/api/contacts/:id",
+    async (int id, AppDbContext context) => {
+    try
+    {
+        return await context.Contacts.FindAsync(id) is Contact contact
+        ? Results.Ok((ContactDTO)contact)
+        : Results.NotFound();
+    }
+    catch
+    {
+        return Results.Problem(
+            detail: "Wystpił błąd podczas realizacji tego żądania",
+            title: "Błąd"
+        );
+    }
+});
+app.MapPost("/api/contacts",
+    async (ContactDTO contact, AppDbContext context) => {
+    try
+    {
+        context.Contacts.Add(contact);
+        await context.SaveChangesAsync();
+        return Results.Created($"/api/contacts/{contact.Id}", contact);
+    }
+    catch
+    {
+        return Results.Problem(
+            detail: "Wystpił błąd podczas realizacji tego żądania",
+            title: "Błąd"
+        );
+    }
+});
+
+public class ContactDTO {
+    public int Id {get;set;}
+    public string FirstName {get;set;} = String.Empty;
+    public string LastName {get;set;} = String.Empty;
+    public string Email {get;set;} = String.Empty;
+    public int Age {get;set;}
+    public Sex Sex {get;set;}
+
+    public static implicit operator Contact(ContactDTO cDTO) => new Contact(
+        id: cDTO.Id,
+        firstName: cDTO.FirstName,
+        lastName: cDTO.LastName,
+        sex: cDTO.Sex,
+        email: cDTO.Email,
+        age: cDTO.Age
+        );
+
+    public static explicit operator ContactDTO(Contact c) => new ContactDTO() {
+        Id = c.Id,
+        FirstName = c.FirstName,
+        LastName = c.LastName,
+        Sex = c.Sex,
+        Age = c.Age,
+        Email = c.Email
+    };
+}
+
 app.Run();
 
 public enum Sex {Male,Female}
@@ -115,7 +190,8 @@ static class SeedDataExtensions {
                 new Contact(0,"Tomasz", "Nowak", Sex.Male,
                     "tomasz.nowak@przyklad.pl", 34),
                 new Contact(0,"Cezary", "Adamski", Sex.Male,
-                    "cezary.adamski@przyklad.pl",45));
+                    "cezary.adamski@przyklad.pl",45)
+            );
             context.SaveChanges();
         }
     }
