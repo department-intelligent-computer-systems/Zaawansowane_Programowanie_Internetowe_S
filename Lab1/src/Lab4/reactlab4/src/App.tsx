@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { FirstComponent } from './components/firstComponent';
+import { FirstComponentF } from './components/firstComponentF';
+import {SecondComponentF} from './components/secondComponentF';
+
 function App() {
   const [firstName, setName] = useState("");
 
@@ -45,6 +48,25 @@ function App() {
   const [isPrevButtonDisabled, setIsPrevButtonDisabled] = useState(false);
   const [isPrevButtonHide, setIsPrevButtonHide] = useState(false);
   const [isNextButtonHide, setIsNextButtonHide] = useState(false);
+
+  const [showSecondComponent, setShowSecondComponent] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowSecondComponent(true);
+  };
+
+  const handleHideSecondComponent = () => {
+    setShowSecondComponent(false);
+  };
+
+
+  const [alertText, setAlertText] = useState("");
+  const handleAlert = (message: string) => {
+    setAlertText(message);
+    //Zamyka 2 komponent
+    setShowSecondComponent(false);
+  };
+
 
   function handleNextImage() {
     setCurrentImageIndex((prevIndex) => {
@@ -123,7 +145,22 @@ function App() {
       <br />
       <p>Zad9</p>
       <p>Zad10</p>
+      <br />
+      <br />
       <FirstComponent></FirstComponent>
+      <br />
+      <br />
+      <br />
+      <p>Zad11</p>
+      <div>
+      {showSecondComponent ? (
+        <SecondComponentF OnHide={handleHideSecondComponent} alertText={handleAlert} />
+      ) : (
+        <FirstComponentF onButtonClick={handleButtonClick} alertText={alertText} />
+      )}
+    </div>
+      <br />
+      <br />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { SecondComponent } from './secondComponent';
 
 type FirstState={
     showSecondComponent:boolean;
+    showMassage:boolean;
 }
 
 
@@ -14,6 +15,7 @@ export class FirstComponent extends React.Component<{},FirstState>{
          super(props);
          this.state={
              showSecondComponent:false,
+             showMassage:false,
             };
         }
      
@@ -31,11 +33,16 @@ export class FirstComponent extends React.Component<{},FirstState>{
 }
     
 render(){
+
+  const {showSecondComponent, showMassage}=this.state;
+
   return (
     <div>
-
+        {!showMassage}
         <button onClick={this.handleButtonClick}>Kliknij żeby wyświetlić drugi komponent</button>
+        <p></p>
         {this.state.showSecondComponent && <SecondComponent/>}
+        
     </div>
   );
 }
