@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { FirstComponent } from './components/firstComponent';
 function App() {
   const [firstName, setName] = useState("");
 
@@ -17,8 +15,23 @@ function App() {
 
   const [counter, setCounter] = useState(0);
 
-  function handleCounterplus() {
-    setCounter((prevCounter) => prevCounter + 1);
+  function handleCounterplus(){
+    const przycisk1 = document.getElementById('plus');
+    const przycisk2 = document.getElementById('minus');
+    const przycisk3 = document.getElementById('plus2');
+    const przycisk4 = document.getElementById('minus2');
+    przycisk1?.addEventListener('click', () => {
+      setCounter(counter +1);
+    });
+    przycisk2?.addEventListener('click', () => {
+      setCounter(counter -1);
+    });
+    przycisk3?.addEventListener('click', () => {
+      setCounter(counter +2);
+    });
+    przycisk4?.addEventListener('click', () => {
+      setCounter(counter -2);
+    });
   }
 
   const [gallery, setGallery] = useState([
@@ -28,13 +41,33 @@ function App() {
   ]);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(false);
+  const [isPrevButtonDisabled, setIsPrevButtonDisabled] = useState(false);
+  const [isPrevButtonHide, setIsPrevButtonHide] = useState(false);
+  const [isNextButtonHide, setIsNextButtonHide] = useState(false);
 
   function handleNextImage() {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % gallery.length);
+    setCurrentImageIndex((prevIndex) => {
+      const nextIndex = (prevIndex + 1) % gallery.length;
+      setIsNextButtonDisabled(nextIndex === 0); 
+      setIsNextButtonHide(nextIndex === 0 );
+      setIsPrevButtonDisabled(false); 
+      setIsPrevButtonHide(false);
+      
+      return nextIndex;
+    });
   }
 
   function handlePrevImage() {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + gallery.length) % gallery.length);
+    setCurrentImageIndex((prevIndex) => {
+      const newIndex = (prevIndex - 1 + gallery.length) % gallery.length;
+      setIsPrevButtonDisabled(newIndex === 0);
+      setIsPrevButtonHide(newIndex === 0);
+      setIsNextButtonDisabled(false);
+      setIsNextButtonHide(false);
+      
+      return newIndex;
+    });
   }
 
   function handleArray(id: number) {
@@ -67,22 +100,30 @@ function App() {
       <br />
       <br />
       <span>Zad4</span>
-      <p>{counter}</p>
-      <button id='plus' onClick={handleCounterplus}>+1</button>
-      <button id='minus' onClick={handleCounterplus}>-1</button>
-      <button id='plus2' onClick={handleCounterplus}>+2</button>
-      <button id='minus2' onClick={handleCounterplus}>-2</button>
-
-      <br />
-      <br />
-
       <span>Zad5</span>
+      <p>{counter}</p>
+      <button onClick={handleCounterplus}>+1</button>
+
+      <br />
+      <br />
+
+      <span>Zad6 i Zad7 i Zad8</span>
 
       <div>
         <img src={gallery[currentImageIndex].url} width="300" height="300" alt={gallery[currentImageIndex].name}></img>
       </div>
-      <button id='nastepneZdjecie' onClick={handleNextImage}>Następne zdjęcie</button>
-      <button id='poprzednieZdjecie' onClick={handlePrevImage}>Poprzednie zdjęcie</button>
+      <button id='nastepneZdjecie' onClick={handleNextImage} disabled={isNextButtonDisabled} hidden={isNextButtonHide}>
+        Następne zdjęcie
+      </button>
+      <button id='poprzednieZdjecie' onClick={handlePrevImage} disabled={isPrevButtonDisabled} hidden={isPrevButtonHide}>
+        Poprzednie zdjęcie
+      </button>
+      <br />
+      <br />
+      <br />
+      <p>Zad9</p>
+      <p>Zad10</p>
+      <FirstComponent></FirstComponent>
     </div>
   );
 }
