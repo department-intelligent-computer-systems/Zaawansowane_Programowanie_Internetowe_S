@@ -9,11 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class FirstComponent implements OnInit {
     
     h1Class? :{};
+    zad2Class? :{};
     
     title: string = "Pierwsza wartość przekazana przez komponent";
+    ns: string = "";
+    isEffectEnable: boolean = true;
     person={
-      firstname: "Ala",
-      lastname: 'Nowak'
+      firstname: "Jacek",
+      lastname: 'Pelikan'
     }
     constructor () {}
     ngOnInit(): void {}
@@ -21,6 +24,7 @@ export class FirstComponent implements OnInit {
     method(){
       return "wartość zwrócona"
     }
+    
 
     onClick(){
       this.title = "Po kliknięciu";
@@ -30,5 +34,24 @@ export class FirstComponent implements OnInit {
     }
     tosmall(){
       this.h1Class = {"kliknieta":true, "niekliknieta":false};
+    }
+
+    nameSurname(){
+      return this.ns = this.person.firstname + " " + this.person.lastname;
+    }
+    bigger(){ 
+        if(this.isEffectEnable){
+          this.zad2Class = {"powiekszony":true, "przekresloneZielone":false};
+          this.isEffectEnable = !this.isEffectEnable;
+        }
+        else{
+          this.zad2Class = {"powiekszony":false, "przekresloneZielone":false};
+          this.isEffectEnable = !this.isEffectEnable;  
+        }
+        
+    }
+    notbigger(){
+
+      this.zad2Class = {"powiekszony":false, "przekresloneZielone":true};
     }
 }
