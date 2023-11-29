@@ -1,0 +1,28 @@
+<p>{{ paragraphTitle }}</p>
+
+<ol>
+  <li *ngFor="let link of links">
+    <a
+      (click)="onClickChangeColor()"
+      [attr.href]="link.url"
+      target="_blank"
+      [style.color]="link.backgroundColor"
+    >
+      {{ link.name }}</a
+    >
+  </li>
+</ol>
+
+<p>Wybór pojedynczy</p>
+<ol>
+  <li *ngFor="let link of links">
+    <a
+      (click)="onClickChangeColorOne()"
+      [attr.href]="link.url"
+      target="_blank"
+      [style.color]="link.backgroundColor"
+    >
+      {{ link.name }}</a
+    >
+  </li>
+</ol>

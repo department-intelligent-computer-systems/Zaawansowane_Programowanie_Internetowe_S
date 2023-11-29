@@ -1,19 +1,14 @@
 import { Author } from "../classes/Author";
 import { IShow } from "../interfaces/IShow";
 
+export class DataJson implements IShow {
+  private _authors: Author[];
 
-export class DataJson implements IShow{
+  constructor(authors: Author[]) {
+    this._authors = authors;
+  }
 
-    private _authors: Author[];
-
-    constructor(authors: Author[]){
-        this._authors = authors;
-    }
-
-    show(): string {
-        return JSON.stringify(this._authors);
-    }
-    
-
-    
+  show(): string {
+    return JSON.stringify(this._authors);
+  }
 }

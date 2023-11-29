@@ -1,0 +1,15 @@
+<div>
+    <h5>Czy chcesz dalej uczyć się frameworka Angular</h5>
+    <div [ngStyle]="{'display':'flex','flex-direction':'row'}">
+        <button (click)="onAnswer(true)">Tak</button>
+        <button (click)="onAnswer(false)">Nie</button>
+    </div>
+
+    <ng-container *ngIf="ifAnswerTrue">
+        <app-komponent1><p>{{title}}</p></app-komponent1>
+    </ng-container>
+
+    <ng-container *ngIf="ifAnswerTrue">
+        <app-komponent1><p>{{title}}</p></app-komponent1>
+    </ng-container>
+</div>

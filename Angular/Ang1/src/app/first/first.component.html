@@ -1,3 +1,35 @@
-<p>
-    Hello Angular!!!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>
+        {{ title }}
+      </h1>
+
+      <div>{{ person.name }} {{ person.lastName }}</div>
+
+      <button (click)="onClick()">Pokaż osobe</button>
+
+      <p
+        [ngClass]="{
+          size: isLargeText === true,
+          'ColorANDtext-decoration': isColorAndStrikeThrough === true
+        }"
+      >
+        {{ text }}
+      </p>
+
+      <button (click)="clickText1()">Zmień rozmiar czcionki</button>
+
+      <button (click)="clickText2()">Zmień kolor i zrób przekreślenie</button>
+      <button (click)="bothEffects()">
+        Zmień kolor/czcionke i zrób przekreślenie
+      </button>
+    </div>
+  </body>
+</html>

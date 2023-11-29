@@ -1,0 +1,13 @@
+<p>{{ counter }}</p>
+
+<div [ngStyle]="{ display: 'flex', 'flex-direction': 'row' }">
+  <button (click)="addCounterFunction()">+1</button><br /><br />
+  <button (click)="subCounterFunction()">-1</button>
+</div>
+
+<div [ngStyle]="{ display: 'flex', 'flex-direction': 'row' }">
+  <button (click)="incDecby2Func(2)">+2</button><br /><br />
+  <button (click)="incDecby2Func(-2)">-2</button>
+</div>
+
+<br /><br />

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>{{ galleryTitle }}</p>
+      <p>Nr zdjęcia:{{ currentPhoto }}</p>
+      <table>
+        <tr>
+          <td>
+            <img
+              src="{{ gallery[currentPhoto].src }}"
+              width="300"
+              height="300"
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div [ngClass]="{ display: 'flex', 'flex-direction': 'row' }">
+      <button (click)="showPrevious()" [disabled]="currentPhoto === 0">
+        Poprzednie zdjęcie
+      </button>
+      <button
+        (click)="showNext()"
+        [disabled]="currentPhoto === gallery.length - 1"
+      >
+        Następne zdjęcie
+      </button>
+    </div>
+    <h4>----------------------------------------------------------------</h4>
+    <p>2 wariant</p>
+    <div [ngClass]="{ display: 'flex', 'flex-direction': 'row' }">
+      <button
+        (click)="showPrevious()"
+        [ngClass]="{ displayPhoto: currentPhoto === 0 }"
+      >
+        Poprzednie zdjęcie
+      </button>
+      <button
+        (click)="showNext()"
+        [ngClass]="{ displayPhoto: currentPhoto === photosNumber }"
+      >
+        Następne zdjęcie
+      </button>
+
+      <table>
+        <tr>
+          <td>
+            <img [src]="myphotos[currentPhoto]" width="300" height="300" />
+          </td>
+        </tr>
+      </table>
+
+      <div [ngClass]="{ display: 'flex', 'flex-direction': 'row' }">
+        <button (click)="showPreviousArray()" [disabled]="currentPhoto === 0">
+          Poprzednie zdjęcie
+        </button>
+        <button (click)="showNext()" [disabled]="currentPhoto === photosNumber">
+          Następne zdjęcie
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

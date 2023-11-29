@@ -1,1 +1,12 @@
-h1 {color:blue}
+h1 {
+  color: blue;
+}
+
+.size {
+  font-size: 48px;
+}
+
+.ColorANDtext-decoration {
+  text-decoration: line-through;
+  color: green;
+}

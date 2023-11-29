@@ -1,0 +1,8 @@
+<div>
+    <p>jestem 2 komponentem</p>
+    <button (click)="onSecondClicked()">Ukryj pierwszy</button>
+
+    <ng-container *ngIf="isSecondClicked">
+        <app-komponent1></app-komponent1>
+    </ng-container>
+</div>
