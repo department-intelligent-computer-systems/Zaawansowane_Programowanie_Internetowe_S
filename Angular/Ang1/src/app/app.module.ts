@@ -14,6 +14,7 @@ import { Komp1Component } from './zadanie14/komp1/komp1.component';
 import { Komp2Component } from './zadanie14/komp2/komp2.component';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { ContactListComponent } from './Components/contacts-list/contact-list/contact-list.component';
 
 
 
@@ -28,6 +29,7 @@ import { HttpClientModule } from "@angular/common/http";
     Komponent2Component,
     Komp1Component,
     Komp2Component,
+    ContactListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, LightboxModule,FormsModule,HttpClientModule],
   providers: [],
