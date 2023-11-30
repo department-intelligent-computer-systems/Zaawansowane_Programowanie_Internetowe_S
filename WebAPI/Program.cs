@@ -65,6 +65,45 @@ async (int id, AppDbContext context) =>
         );
     }
 });
+ app.MapPut("/api/contacts/{id}", async (int id, ContactDTO updatedContact, AppDbContext context) => {
+ try
+ {
+var existingContact = await context.Contacts.FindAsync(id);
+ if (existingContact == null)
+{
+ return Results.NotFound();
+}
+
+ existingContact.UpdateContact(updatedContact); // Utilize a method to update contact properties
+
+await context.SaveChangesAsync();
+
+ return Results.Ok((ContactDTO)existingContact);
+ }
+ catch
+ {
+return Results.Problem(
+ detail: "There is a problem in realisation of this",
+ title: "Error"
+ );
+ }
+});
+
+app.MapPost("/api/contacts", async (ContactDTO contact, AppDbContext context) => {
+try
+{
+context.Contacts.Add(contact);
+await context.SaveChangesAsync();
+return Results.Created($"/api/contacts/{contact.Id}", contact);
+}
+catch
+{
+return Results.Problem(
+detail: "Wystąpił błąd podczas realizacji tego żądania",
+title: "Błąd"
+);
+}
+});
 app.MapPost("/api/contacts",
 async (ContactDTO contact, AppDbContext context) =>
 {
@@ -128,6 +167,75 @@ public class Contact
         this.Age =
         age ?? throw new ArgumentNullException(nameof(age));
     }
+//  public void UpdateContact(int newID, string newFirstName, string newLastName, Sex newSex, Email newEmail, Age newAge)
+//  {
+//     this.Id = newID;
+//  this.FirstName = newFirstName;
+//  this.LastName = newLastName;
+//  this.Sex = newSex;
+//  this.Email = newEmail ?? throw new ArgumentNullException(nameof(newEmail));
+//  this.Age = newAge ?? throw new ArgumentNullException(nameof(newAge));
+//  }
+
+    internal void UpdateContact(ContactDTO updatedContact, string newFirstName, string newLastName, Sex newSex, Email newEmail, Age newAge)
+    {
+ this.FirstName = newFirstName;
+ this.LastName = newLastName;
+ this.Sex = newSex;
+ this.Email = newEmail ?? throw new ArgumentNullException(nameof(newEmail));
+ this.Age = newAge ?? throw new ArgumentNullException(nameof(newAge));
+    }
+
+    //     public void UpdateFirstName(string newFirstName){
+    //         if(!String.IsNullOrWhiteSpace(newFirstName)){
+    //             this.FirstName=newFirstName;
+    //         }
+    //         else
+    //         {
+    //             throw new ArgumentException("First name cannot be empty or null");
+    //         }
+    //     }
+    //         public void UpdateLastName(string newLastName){
+    //         if(!String.IsNullOrWhiteSpace(newLastName)){
+    //             this.LastName=newLastName;
+    //         }
+    //         else
+    //         {
+    //             throw new ArgumentException("First name cannot be empty or null");
+    //         }
+    //     }
+    //         public void UpdateSex(Sex newSex){
+    //         if(!Sex.Equals(0)){
+    //             this.Sex=newSex;
+    //         }
+    //         else
+    //         {
+    //             throw new ArgumentException("First name cannot be empty or null");
+    //         }
+    //     }
+
+    //     public void UpdateEmail(Email newEmail)
+    //     {
+    //         if (newEmail != Email)
+    //         {
+    //             this.Email = newEmail;
+    //         }
+    //         else
+    //         {
+    //             throw new ArgumentException("First name cannot be empty or null");
+    //         }
+    //     }
+    //         public void UpdateAge(Age newAge)
+    //     {
+    //         if (newAge != Age)
+    //         {
+    //             this.Age = newAge;
+    //         }
+    //         else
+    //         {
+    //             throw new ArgumentException("First name cannot be empty or null");
+    //         }
+    //     }
 }
 class AppDbContext : DbContext
 {
@@ -209,4 +317,25 @@ public class ContactDTO
         Age = c.Age,
         Email = c.Email
     };
+//     public Contact(int id, string firstName, string lastName, Sex sex, Email email, Age age)
+// {
+// this.Id = id;
+// this.UpdateContact(firstName, lastName, sex, email, age); // Utilize a method to update contact properties
+// }
+//     public void UpdateContact(string newFirstName, string newLastName, Sex newSex, Email newEmail, Age newAge)
+// {
+// if (!String.IsNullOrWhiteSpace(newFirstName))
+// this.FirstName = newFirstName;
+// else
+// throw new ArgumentException("First name cannot be empty or null");
+
+// if (!String.IsNullOrWhiteSpace(newLastName))
+// this.LastName = newLastName;
+// else
+// throw new ArgumentException("Last name cannot be empty or null");
+
+// this.Sex = newSex;
+// this.Email = newEmail ?? throw new ArgumentNullException(nameof(newEmail));
+// this.Age = newAge ?? throw new ArgumentNullException(nameof(newAge));
+// }
 }
