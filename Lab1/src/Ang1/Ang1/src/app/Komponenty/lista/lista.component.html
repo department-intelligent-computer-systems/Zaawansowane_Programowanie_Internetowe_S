@@ -1,0 +1,21 @@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+            <th>Kierunek</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of studenci | async" [ngClass]="{'Wybrany':student === (wybrany | async)}" (click)="lista_studentow(student)">
+            <td>{{student.id}}</td>
+            <td>{{student.imie}}</td>
+            <td>{{student.nazwisko}}</td>
+            <td>{{student.wiek}}</td>
+            <td>{{student.kierunek}}</td>
+            <button (click)="usuwanie(student)">Usun</button>
+        </tr>
+    </tbody>
+</table>
