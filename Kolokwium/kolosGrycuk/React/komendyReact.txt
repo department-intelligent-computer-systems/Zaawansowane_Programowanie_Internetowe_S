@@ -7,3 +7,5 @@ npm install
 
 //uruchomienie 
 npm start
+
+//nowe1
