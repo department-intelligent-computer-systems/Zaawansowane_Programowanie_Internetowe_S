@@ -10,15 +10,15 @@ export class Table implements IShow {
     }
 
 
-    show(): string {
-        let tableHtml = '<table>';
-        tableHtml += '<tr><th>Imię i Nazwisko</th><th>Email</th></tr>';
+    show(): void {
+        const tableHtml = '<table>' +
+            '<tr><th>Imię i Nazwisko</th><th>Email</th></tr>' +
+            this._authors.map(author => `<tr><td>${author.firstName} ${author.lastName}</td><td>${author.email}</td></tr>`).join('') +
+            '</table>';
 
-        for (const author of this._authors) {
-            tableHtml += `<tr><td>${author.firstName} ${author.lastName}</td><td>${author.email}</td></tr>`;
+        const tableContainer = document.getElementById("table-container");
+        if(tableContainer) {
+            tableContainer.innerHTML = tableHtml;
         }
-
-        tableHtml += '</table>';
-        return tableHtml;
     }
 }

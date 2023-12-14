@@ -1,0 +1,48 @@
+//
+A. WebAPI
+
+1.dotnet new web -f net6.0
+2.dotnet add package Microsoft.EntityFrameworkCore --version 6.0.10
+3.dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 6.0.10
+4.dotnet add package Microsoft.EntityFrameworkCore.Design --version 6.0.10
+5.dotnet tool install --global dotnet-ef --version 6.0.10
+6.dotnet add package Swashbuckle.AspNetCore
+
+//do uruchomienia 
+dotnet build
+dotnet run
+
+//swagger
+dotnet add package Swashbuckle.AspNetCore
+
+B. Angular
+
+1.npm install -g @angular/cli
+2.ng new Ang1 --minimal=true
+
+*(szablon css)
+*(no routing)
+
+//uruchamianie projektu
+ng serve --open
+
+//tworzenie nowych komponentów
+ng g c main
+
+//tworzenie nowej klasy (folder/NazwaKlasy)
+ng generate class Model/Contact
+
+//tworzenie usług (folder/NazwaUsługi)
+ng generate service services/contactsService
+
+C. React
+
+///stworzenie szablonu bez dużych liter
+
+npx create-react-app reactkolos1 --template typescript
+
+//doinstalowanie pakietów
+npm install
+
+//uruchomienie 
+npm start

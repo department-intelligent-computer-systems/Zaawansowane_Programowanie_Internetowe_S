@@ -1,0 +1,9 @@
+///stworzenie szablonu bez dużych liter
+
+npx create-react-app reactkolos1 --template typescript
+
+//doinstalowanie pakietów
+npm install
+
+//uruchomienie 
+npm start

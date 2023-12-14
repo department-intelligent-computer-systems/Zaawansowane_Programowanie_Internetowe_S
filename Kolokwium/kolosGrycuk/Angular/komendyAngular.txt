@@ -1,0 +1,14 @@
+1.npm install -g @angular/cli
+2.ng new Ang1 --minimal=true
+
+//uruchamianie projektu
+ng serve --open
+
+//tworzenie nowych komponentów
+ng g c main
+
+//tworzenie nowej klasy (folder/NazwaKlasy)
+ng generate class Model/Contact
+
+//tworzenie usług (folder/NazwaUsługi)
+ng generate service services/contactsService

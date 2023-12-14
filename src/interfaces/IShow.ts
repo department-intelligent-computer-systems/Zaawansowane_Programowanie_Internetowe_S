@@ -1,3 +1,3 @@
 export interface IShow {
-    show():string
+    show():void
 }

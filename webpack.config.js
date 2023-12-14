@@ -5,7 +5,7 @@ module.exports= {
     mode: 'development',
     devtool: 'source-map',
     entry:{
-        app: './src/index.ts'
+        app: './src/main.ts'
     },
     output: {
         path: path.join(__dirname, './build'),
