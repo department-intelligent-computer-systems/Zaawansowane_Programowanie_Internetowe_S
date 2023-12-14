@@ -12,6 +12,11 @@ import { Komponent1Component } from './zadanie12/komponent1/komponent1.component
 import { Komponent2Component } from './zadanie12/komponent2/komponent2.component';
 import { Komp1Component } from './zadanie14/komp1/komp1.component';
 import { Komp2Component } from './zadanie14/komp2/komp2.component';
+import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { ContactListComponent } from './Components/contacts-list/contact-list/contact-list.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,8 +29,9 @@ import { Komp2Component } from './zadanie14/komp2/komp2.component';
     Komponent2Component,
     Komp1Component,
     Komp2Component,
+    ContactListComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, LightboxModule],
+  imports: [BrowserModule, AppRoutingModule, LightboxModule,FormsModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

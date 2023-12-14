@@ -8,4 +8,4 @@ npm install
 //uruchomienie 
 npm start
 
-//nowe1
+//nowe2
